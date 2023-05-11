@@ -31,6 +31,7 @@ function CourseInstructorsTab() {
             console.log(data.data);
             // Perform another job
             if (data.code === 200) {
+                setLoading(false);
                 setAllInstructors(data.data)
             }
             else {
@@ -41,7 +42,7 @@ function CourseInstructorsTab() {
             // Handle the error
             throw new Error('Request failed');
         }
-        setLoading(false);
+       
     }
 
 
