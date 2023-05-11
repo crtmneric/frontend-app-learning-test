@@ -11,7 +11,7 @@ function CourseInstructorsTab() {
     useEffect(() => {
         getInstructors();
     }, [])
-
+    
     const getInstructors = async () => {
         setLoading(true);
         const apiKey = process.env.CMS_API_KEY;
@@ -24,13 +24,25 @@ function CourseInstructorsTab() {
                 'x-api-key': `${apiKey}`
             },
         });
-
-        console.log("response", response)
-
-        if (response.code === 200) {
-            setAllInstructors(response.data)
-        }
-
+        
+        if (response.ok) {
+            const data = await response.json();
+            // Use the data from the response
+            console.log(data.data);
+            // Perform another job
+            if (data.code === 200) {
+                setAllInstructors(response.data)
+            }
+            else
+            {
+                console.log('Eğitmen yok')
+            }
+    
+          } else {
+            // Handle the error
+            throw new Error('Request failed');
+          }
+        } 
         setLoading(false);
     }
 
@@ -53,9 +65,7 @@ function CourseInstructorsTab() {
                             </div>
                         </div>
                     ))}
-                    {allInstructors && allInstructors.length < 1 &&
-                        <span>Gösterilecek eğitmen bulunamadı.</span>
-                    }
+                    {allInstructors && allInstructors.length < 1 && <span>Gösterilecek eğitmen bulunamadı.</span>}
                 </div>
                 :
                 <span>Yükleniyor</span>
