@@ -4,7 +4,6 @@ import { getConfig } from '@edx/frontend-platform';
 
 function CourseInstructorsTab() {
     const { courseId } = useSelector(state => state.courseHome);
-    const [loading, setLoading] = useState(true);
 
     const [allInstructors, setAllInstructors] = useState();
 
@@ -13,7 +12,6 @@ function CourseInstructorsTab() {
     }, [])
 
     const getInstructors = async () => {
-        setLoading(true);
         const apiKey = process.env.CMS_API_KEY;
         const CMS_URL = process.env.CMS_URL;
         let url = `${CMS_URL}/api/v1/cms/course/instructor/${courseId}`;
@@ -31,7 +29,6 @@ function CourseInstructorsTab() {
             console.log(data.data);
             // Perform another job
             if (data.code === 200) {
-                setLoading(false);
                 setAllInstructors(data.data)
             }
             else {
@@ -49,7 +46,7 @@ function CourseInstructorsTab() {
 
     return (
         <div class="instructors">
-            {loading ?
+            {
                 <div class="row">
                     {allInstructors && allInstructors.length > 0 && allInstructors.map(instructor => (
                         <div class="col-12 col-sm-12 col-md-3 col-lg-4">
@@ -68,8 +65,6 @@ function CourseInstructorsTab() {
                     ))}
                     {allInstructors && allInstructors.length < 1 && <span>Gösterilecek eğitmen bulunamadı.</span>}
                 </div>
-                :
-                <span>Yükleniyor</span>
             }
 
         </div>
