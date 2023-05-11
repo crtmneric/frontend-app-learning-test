@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getConfig } from '@edx/frontend-platform';
+import LinkedInImg from "./assets/img/linked.png";
 
 function CourseInstructorsTab() {
     const { courseId } = useSelector(state => state.courseHome);
@@ -52,7 +53,7 @@ function CourseInstructorsTab() {
                         <div class="col-12 col-sm-12 col-md-3 col-lg-4">
                             <div class="instructor card" style={{ padding: "25px 35px", borderRadius: "16px", boxShadow: "0px 4px 16px rgb(209 219 228 / 40%)" }}>
                                 <a style={{ color: "#4229E1" }} href={instructor.linkedin} target="_blank">
-                                    <img src="./assets/img/linked.png" alt="icon" style={{ width: "24px", alignSelf: "end" }} />
+                                    <img src={LinkedInImg} alt="icon" style={{ width: "24px", alignSelf: "end" }} />
                                 </a>
                                 <img class="avatar" src={instructor.cover_image} alt={instructor.name} style={{ borderRadius: "50%", paddingBottom: "24px" }} />
 
