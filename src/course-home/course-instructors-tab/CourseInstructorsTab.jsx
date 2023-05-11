@@ -11,7 +11,7 @@ function CourseInstructorsTab() {
     useEffect(() => {
         getInstructors();
     }, [])
-    
+
     const getInstructors = async () => {
         setLoading(true);
         const apiKey = process.env.CMS_API_KEY;
@@ -24,7 +24,7 @@ function CourseInstructorsTab() {
                 'x-api-key': `${apiKey}`
             },
         });
-        
+
         if (response.ok) {
             const data = await response.json();
             // Use the data from the response
@@ -33,18 +33,18 @@ function CourseInstructorsTab() {
             if (data.code === 200) {
                 setAllInstructors(data.data)
             }
-            else
-            {
+            else {
                 console.log('Eğitmen yok')
             }
-    
-          } else {
+
+        } else {
             // Handle the error
             throw new Error('Request failed');
-          }
-        } 
+        }
         setLoading(false);
     }
+
+
 
     return (
         <div class="instructors">
