@@ -31,7 +31,7 @@ function CourseInstructorsTab() {
             console.log(data.data);
             // Perform another job
             if (data.code === 200) {
-                setAllInstructors(response.data)
+                setAllInstructors(data.data)
             }
             else
             {
