@@ -13,7 +13,7 @@ function CourseTabsNavigation({
 }) {
   const {
     courseId,
-} = useSelector(state => state.courseHome);
+  } = useSelector(state => state.courseHome);
   return (
     <div id="courseTabsNavigation" className={classNames('course-tabs-navigation', className)}>
       <div className="container-xl">
@@ -23,39 +23,40 @@ function CourseTabsNavigation({
         >
 
           {tabs.map(({ url, title, slug }) => (
+            slug !== "discuss" && slug !== "dates" &&
             <a
               key={slug}
               className={classNames('nav-item flex-shrink-0 nav-link', { active: slug === activeTabSlug })}
               href={url}
             >
-            {
+              {
                 slug === 'courseware' ? 'Öğrenme Yolculuğu' :
-                slug === 'progress' ? 'İlerleme' :
-                slug === 'dates' ? "Tarihler" :
-                slug === 'instructors' ? 'Eğitmenler' :
-                slug === 'instructor' ? 'Eğitmen':
-                slug === 'comments' ? 'Yorumlar' :
-                slug === 'outline' ? 'Öğrenme Yolculuğu' :
-                title
-            }
-           
+                  slug === 'progress' ? 'İlerleme' :
+                    slug === 'dates' ? "Tarihler" :
+                      slug === 'instructors' ? 'Eğitmenler' :
+                        slug === 'instructor' ? 'Eğitmen' :
+                          slug === 'comments' ? 'Yorumlar' :
+                            slug === 'outline' ? 'Öğrenme Yolculuğu' :
+                              title
+              }
+
             </a>
 
           ))}
-            <a
-              key='comments'
-              className={classNames('nav-item flex-shrink-0 nav-link', { active: 'comments' === activeTabSlug })}
-              href={`/learning/course/${courseId}/comments`}
-            >
+          <a
+            key='comments'
+            className={classNames('nav-item flex-shrink-0 nav-link', { active: 'comments' === activeTabSlug })}
+            href={`/learning/course/${courseId}/comments`}
+          >
             Yorumlar
-            </a>
-            <a
-              key='course-instructors'
-              className={classNames('nav-item flex-shrink-0 nav-link', { active: 'course-instructors' === activeTabSlug })}
-              href={`/learning/course/${courseId}/course-instructors`}
-            >
+          </a>
+          <a
+            key='course-instructors'
+            className={classNames('nav-item flex-shrink-0 nav-link', { active: 'course-instructors' === activeTabSlug })}
+            href={`/learning/course/${courseId}/course-instructors`}
+          >
             Eğitmenler
-            </a>
+          </a>
         </Tabs>
       </div>
     </div>

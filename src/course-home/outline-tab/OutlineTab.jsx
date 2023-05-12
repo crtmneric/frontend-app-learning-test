@@ -147,19 +147,7 @@ function OutlineTab({ intl }) {
         </div>
         <div className="col col-12 col-md-8">
           { /** [MM-P2P] Experiment (the conditional) */ }
-          { !MMP2P.state.isEnabled
-            && (
-            <AlertList
-              topic="outline-course-alerts"
-              className="mb-3"
-              customAlerts={{
-                ...certificateAvailableAlert,
-                ...courseEndAlert,
-                ...courseStartAlert,
-                ...scheduledContentAlert,
-              }}
-            />
-            )}
+          
           {isSelfPaced && hasDeadlines && !MMP2P.state.isEnabled && (
             <>
               <ShiftDatesAlert model="outline" fetch={fetchOutlineTab} />
