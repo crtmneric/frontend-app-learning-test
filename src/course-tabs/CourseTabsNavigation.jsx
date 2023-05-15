@@ -23,7 +23,7 @@ function CourseTabsNavigation({
         >
 
           {tabs.map(({ url, title, slug }) => (
-            slug !== "discuss" && slug !== "dates" &&
+            slug !== "discussion" && slug !== "dates" &&
             <a
               key={slug}
               className={classNames('nav-item flex-shrink-0 nav-link', { active: slug === activeTabSlug })}
