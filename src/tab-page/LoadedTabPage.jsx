@@ -14,6 +14,7 @@ import useEnrollmentAlert from '../alerts/enrollment-alert';
 import useLogistrationAlert from '../alerts/logistration-alert';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import ProductTours from '../product-tours/ProductTours';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function LoadedTabPage({
   activeTabSlug,
@@ -40,7 +41,7 @@ function LoadedTabPage({
 
   const streakLengthToCelebrate = celebrations && celebrations.streakLengthToCelebrate;
   const streakDiscountCouponEnabled = celebrations && celebrations.streakDiscountEnabled && verifiedMode;
-  const [isStreakCelebrationOpen,, closeStreakCelebration] = useToggle(streakLengthToCelebrate);
+  const [isStreakCelebrationOpen, , closeStreakCelebration] = useToggle(streakLengthToCelebrate);
 
   return (
     <>
@@ -78,13 +79,15 @@ function LoadedTabPage({
             ...logistrationAlert,
           }}
         />
-       <div class="course-detail-header">
-            <div class="container-xl py-4 ">
-                <img src={faArrowLeft} alt="icon" />
+        <div class="course-detail-header">
+          <div class="container-xl py-4 ">
+            <a href="https://pupilica.com" target="_blank" rel="noopener noreferrer">
+              <img src={`data:image/svg+xml;utf8,${encodeURIComponent(FontAwesomeIcon.icon(faArrowLeft).html[0])}`} alt="Arrow Left" />
+            </a>
 
-                <span class="course-detail-header_title">{title}</span>
-            </div>
-       </div>
+            <span class="course-detail-header_title">{title}</span>
+          </div>
+        </div>
         <CourseTabsNavigation tabs={tabs} className="mb-3" activeTabSlug={activeTabSlug} />
         <div className="container-sm custom-container">
           {children}
