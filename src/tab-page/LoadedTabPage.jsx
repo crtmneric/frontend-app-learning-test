@@ -82,7 +82,7 @@ function LoadedTabPage({
         />
         <div class="course-detail-header">
           <div class="container-xl py-4 ">
-            <a href="https://pupilica.com" target="_blank" rel="noopener noreferrer" style={{ paddingRight: "5px" }}>
+            <a href="https://pupilica.com" target="_blank" rel="noopener noreferrer" style={{ paddingRight: "16px" }}>
               <img src={LeftImg} alt="Arrow Left" style={{ width: "25px", paddingBottom: "10px" }} />
             </a>
 
