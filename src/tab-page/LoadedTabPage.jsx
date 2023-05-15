@@ -12,7 +12,7 @@ import StreakModal from '../shared/streak-celebration';
 import InstructorToolbar from '../instructor-toolbar';
 import useEnrollmentAlert from '../alerts/enrollment-alert';
 import useLogistrationAlert from '../alerts/logistration-alert';
-
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import ProductTours from '../product-tours/ProductTours';
 
 function LoadedTabPage({
@@ -80,6 +80,8 @@ function LoadedTabPage({
         />
        <div class="course-detail-header">
             <div class="container-xl py-4 ">
+                <img src={faArrowLeft} alt="icon" />
+
                 <span class="course-detail-header_title">{title}</span>
             </div>
        </div>

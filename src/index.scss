@@ -389,6 +389,30 @@
 .text-gray-700.mr-3 {
   display: none;
 }
+
+.accourdion-radius {
+  border-radius: 32px !important;
+}
+
+.accordion-text {
+  font-size: 13px !important;
+}
+
+.collapsible-card-lg .collapsible-icon {
+  margin-inline-start: 0 !important;
+  margin-inline-end: 8px !important;
+}
+
+.collapsible-card-lg .collapsible-trigger {
+  flex-direction: row-reverse !important;
+  padding: 16px 24px !important;
+  border: none !important;
+}
+
+.collapsible-card-lg .collapsible-body {
+  padding: 8px 60px 24px 60px !important;
+}
+
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
 @import "courseware/course/sidebar/sidebars/notifications/NotificationIcon.scss";

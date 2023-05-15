@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { Collapsible, IconButton } from '@edx/paragon';
-import { faCheckCircle as fasCheckCircle, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle as fasCheckCircle, faArrowLeft, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { faCheckCircle as farCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -41,7 +41,13 @@ function Section({
   }, []);
 
   const sectionTitle = (
-    <div className="row w-100 m-0">
+    <div className="row w-100 m-0 justify-content-between align-items-center">
+      <div className="col-10 p-0 font-weight-bold text-dark-500 accordion-text">
+        <span className="align-middle">{title}</span>
+        <span className="sr-only">
+          , {intl.formatMessage(complete ? messages.completedSection : messages.incompleteSection)}
+        </span>
+      </div>
       <div className="col-auto p-0">
         {complete ? (
           <FontAwesomeIcon
@@ -61,19 +67,13 @@ function Section({
           />
         )}
       </div>
-      <div className="col-10 ml-3 p-0 font-weight-bold text-dark-500">
-        <span className="align-middle">{title}</span>
-        <span className="sr-only">
-          , {intl.formatMessage(complete ? messages.completedSection : messages.incompleteSection)}
-        </span>
-      </div>
     </div>
   );
 
   return (
     <li>
       <Collapsible
-        className="mb-2"
+        className="mb-3 accourdion-radius"
         styling="card-lg"
         title={sectionTitle}
         open={open}
@@ -81,7 +81,7 @@ function Section({
         iconWhenClosed={(
           <IconButton
             alt={intl.formatMessage(messages.openSection)}
-            icon={faPlus}
+            icon={faArrowLeft}
             onClick={() => { setOpen(true); }}
             size="sm"
           />
@@ -89,7 +89,7 @@ function Section({
         iconWhenOpen={(
           <IconButton
             alt={intl.formatMessage(genericMessages.close)}
-            icon={faMinus}
+            icon={faArrowUp}
             onClick={() => { setOpen(false); }}
             size="sm"
           />

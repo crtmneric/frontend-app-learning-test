@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getConfig } from '@edx/frontend-platform';
 import LinkedInImg from "./assets/img/linked.png";
+import InfoImg from "./assets/img/info.png";
 
 function CourseInstructorsTab() {
     const { courseId } = useSelector(state => state.courseHome);
@@ -40,7 +41,7 @@ function CourseInstructorsTab() {
             // Handle the error
             throw new Error('Request failed');
         }
-       
+
     }
 
 
@@ -64,7 +65,13 @@ function CourseInstructorsTab() {
                             </div>
                         </div>
                     ))}
-                    {allInstructors && allInstructors.length < 1 && <span>Gösterilecek eğitmen bulunamadı.</span>}
+                    {allInstructors && allInstructors.length < 1 &&
+                        <div>
+                            <img src={InfoImg} alt="icon" />
+                            <p>Gösterilecek Eğitmen Bilgisi Bulunamadı</p>
+                        </div>
+
+                    }
                 </div>
             }
 

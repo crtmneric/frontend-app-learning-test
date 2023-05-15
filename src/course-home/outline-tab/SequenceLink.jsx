@@ -42,7 +42,14 @@ function SequenceLink({
   return (
     <li>
       <div className={classNames('', { 'mt-2 pt-2 border-top border-light': !first })}>
-        <div className="row w-100 m-0">
+        <div className="row w-100 m-0 align-items-center">
+          <div className="col-10 p-0 text-break accordion-text">
+            <span className="align-middle">{displayTitle}</span>
+            <span className="sr-only">
+              , {intl.formatMessage(complete ? messages.completedAssignment : messages.incompleteAssignment)}
+            </span>
+            <EffortEstimate className="ml-3 align-middle" block={sequence} />
+          </div>
           <div className="col-auto p-0">
             {complete ? (
               <FontAwesomeIcon
@@ -61,13 +68,6 @@ function SequenceLink({
                 title={intl.formatMessage(messages.incompleteAssignment)}
               />
             )}
-          </div>
-          <div className="col-10 p-0 ml-3 text-break">
-            <span className="align-middle">{displayTitle}</span>
-            <span className="sr-only">
-              , {intl.formatMessage(complete ? messages.completedAssignment : messages.incompleteAssignment)}
-            </span>
-            <EffortEstimate className="ml-3 align-middle" block={sequence} />
           </div>
         </div>
         {due && (
