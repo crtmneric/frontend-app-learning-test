@@ -11,6 +11,8 @@ import { useModel } from '../../generic/model-store';
 
 import genericMessages from '../../generic/messages';
 import messages from './messages';
+import UpImg from "./assets/img/up.png";
+import RightImg from "./assets/img/right.png";
 
 function Section({
   courseId,
@@ -81,7 +83,7 @@ function Section({
         iconWhenClosed={(
           <IconButton
             alt={intl.formatMessage(messages.openSection)}
-            icon={faArrowLeft}
+            icon={RightImg}
             onClick={() => { setOpen(true); }}
             size="sm"
           />
@@ -89,7 +91,7 @@ function Section({
         iconWhenOpen={(
           <IconButton
             alt={intl.formatMessage(genericMessages.close)}
-            icon={faArrowUp}
+            icon={UpImg}
             onClick={() => { setOpen(false); }}
             size="sm"
           />

@@ -410,7 +410,12 @@
 }
 
 .collapsible-card-lg .collapsible-body {
-  padding: 8px 60px 24px 60px !important;
+  padding: 8px 24px 24px 60px !important;
+}
+
+.btn-icon.btn-icon-primary:hover {
+  background-color: transparent !important;
+  color: #000  !important;
 }
 
 // Import component-specific sass files

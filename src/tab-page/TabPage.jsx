@@ -78,6 +78,7 @@ function TabPage({ intl, ...props }) {
           courseOrg={org}
           courseNumber={number}
           courseTitle={title}
+          showUserDropdown={false}
         />
         <LoadedTabPage {...props} />
         <Footer />
