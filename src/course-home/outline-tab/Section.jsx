@@ -83,7 +83,7 @@ function Section({
         iconWhenClosed={(
           <IconButton
             alt={intl.formatMessage(messages.openSection)}
-            icon={RightImg}
+            src={RightImg}
             onClick={() => { setOpen(true); }}
             size="sm"
           />
@@ -91,7 +91,7 @@ function Section({
         iconWhenOpen={(
           <IconButton
             alt={intl.formatMessage(genericMessages.close)}
-            icon={UpImg}
+            src={UpImg}
             onClick={() => { setOpen(false); }}
             size="sm"
           />
