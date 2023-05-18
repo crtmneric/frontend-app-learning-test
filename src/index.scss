@@ -418,6 +418,10 @@
   color: #000  !important;
 }
 
+footer, header {
+  display: none !important;
+}
+
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
 @import "courseware/course/sidebar/sidebars/notifications/NotificationIcon.scss";
