@@ -422,8 +422,8 @@ header {
   display: none !important;
 }
 
-footer {
-  display: none !important;
+footer.footer.d-flex.border-top.py-3.px-4 {
+  display: none;
 }
 
 // Import component-specific sass files
