@@ -10,7 +10,7 @@ import { removeBookmark, addBookmark } from './data/thunks';
 const addBookmarkLabel = (
   <FormattedMessage
     id="unit.bookmark.button.add.bookmark"
-    defaultMessage="Bookmark this page"
+    defaultMessage="Yer imlerine ekle"
     description="The button to bookmark a page"
   />
 );
@@ -18,7 +18,7 @@ const addBookmarkLabel = (
 const hasBookmarkLabel = (
   <FormattedMessage
     id="unit.bookmark.button.remove.bookmark"
-    defaultMessage="Bookmarked"
+    defaultMessage="Yer imlerine eklendi"
     description="The button to show a page is bookmarked and the button to remove that bookmark"
   />
 );
