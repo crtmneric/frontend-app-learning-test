@@ -56,11 +56,14 @@ function CourseInstructorsTab() {
                                 <a style={{ color: "#4229E1", textAlign: "right" }} href={instructor.linkedin} target="_blank">
                                     <img src={LinkedInImg} alt="icon" style={{ width: "24px", alignSelf: "end" }} />
                                 </a>
-                                <img class="avatar" src={instructor.cover_image} alt={instructor.name} style={{ width: "104px", margin: "0 auto", borderRadius: "50%", paddingBottom: "24px" }} />
+                                <img class="avatar" src={instructor.cover_image} alt={instructor.name} style={{ width: "130px", height: "130px", margin: "0 auto 20px auto", borderRadius: "50%", objectFit: "cover" }} />
 
                                 <h5 class="name" style={{ marginBottom: "4px", fontSize: "13px", fontWeight: "bold", textAlign: "center" }}>{instructor.name}</h5>
                                 <span class="title" style={{ paddingBottom: "16px", fontSize: "13px", textAlign: "center" }}>{instructor.title}</span>
-                                <p class="text instructorBio">{instructor.bio}</p>
+                                <p class="text instructorBio"
+                                    style={{ height: "200px", overflowY: "scroll", fontSize: "12px", textAlign: "center" }}>
+                                    {instructor.bio}
+                                </p>
 
                             </div>
                         </div>

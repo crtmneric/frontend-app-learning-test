@@ -89,7 +89,7 @@ function LoadedTabPage({
             <span class="course-detail-header_title">{title}</span>
           </div>
         </div>
-        <CourseTabsNavigation tabs={tabs} className="mb-3" activeTabSlug={activeTabSlug} />
+        <CourseTabsNavigation tabs={tabs} className="mb-4" activeTabSlug={activeTabSlug} />
         <div className="container-sm custom-container">
           {children}
         </div>
