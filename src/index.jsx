@@ -31,7 +31,7 @@ import DatesTab from './course-home/dates-tab';
 import GoalUnsubscribe from './course-home/goal-unsubscribe';
 import ProgressTab from './course-home/progress-tab/ProgressTab';
 import { TabContainer } from './tab-page';
-
+import { replaceHref } from './tab-page/ModifiedHeader';
 import { fetchDatesTab, fetchOutlineTab, fetchProgressTab } from './course-home/data';
 import { fetchCourse } from './courseware/data';
 import initializeStore from './store';
@@ -43,6 +43,7 @@ import CourseAccessErrorPage from './generic/CourseAccessErrorPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 subscribe(APP_READY, () => {
+  replaceHref();
   ReactDOM.render(
     <AppProvider store={initializeStore()}>
       <Helmet>
