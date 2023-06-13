@@ -7,7 +7,8 @@ import {
   getConfig,
 } from '@edx/frontend-platform';
 import { AppProvider, ErrorPage, PageRoute } from '@edx/frontend-platform/react';
-import React from 'react';
+import React, { useEffect } from 'react';
+
 import ReactDOM from 'react-dom';
 import { Switch } from 'react-router-dom';
 
@@ -31,7 +32,6 @@ import DatesTab from './course-home/dates-tab';
 import GoalUnsubscribe from './course-home/goal-unsubscribe';
 import ProgressTab from './course-home/progress-tab/ProgressTab';
 import { TabContainer } from './tab-page';
-import { replaceHref } from './tab-page/ModifiedHeader';
 import { fetchDatesTab, fetchOutlineTab, fetchProgressTab } from './course-home/data';
 import { fetchCourse } from './courseware/data';
 import initializeStore from './store';
@@ -42,8 +42,17 @@ import CourseAccessErrorPage from './generic/CourseAccessErrorPage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+const replaceHref = () => {
+  useEffect(() => {
+    const links = document.querySelectorAll('header a');
+
+    links.forEach((link) => {
+      link.setAttribute('href', 'https://pupilica.com');
+    });
+  }, []);
+};
+
 subscribe(APP_READY, () => {
-  replaceHref();
   ReactDOM.render(
     <AppProvider store={initializeStore()}>
       <Helmet>

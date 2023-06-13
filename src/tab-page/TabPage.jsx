@@ -16,6 +16,7 @@ import messages from './messages';
 import LoadedTabPage from './LoadedTabPage';
 import { setCallToActionToast } from '../course-home/data/slice';
 import LaunchCourseHomeTourButton from '../product-tours/newUserCourseHomeTour/LaunchCourseHomeTourButton';
+import HeaderWrapper from './ModifiedHeader'
 
 function TabPage({ intl, ...props }) {
   const {
@@ -41,7 +42,7 @@ function TabPage({ intl, ...props }) {
   if (courseStatus === 'loading') {
     return (
       <>
-        <Header />
+        <HeaderWrapper />
         <PageLoading
           srMessage={intl.formatMessage(messages.loading)}
         />
@@ -74,7 +75,7 @@ function TabPage({ intl, ...props }) {
           {toastHeader}
         </Toast>
         {metadataModel === 'courseHomeMeta' && (<LaunchCourseHomeTourButton srOnly />)}
-        <Header
+        <HeaderWrapper
           courseOrg={org}
           courseNumber={number}
           courseTitle={title}
@@ -89,7 +90,7 @@ function TabPage({ intl, ...props }) {
   // courseStatus 'failed' and any other unexpected course status.
   return (
     <>
-      <Header />
+      <HeaderWrapper />
       <p className="text-center py-5 mx-auto" style={{ maxWidth: '30em' }}>
         {intl.formatMessage(messages.failure)}
       </p>

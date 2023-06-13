@@ -11,6 +11,7 @@ import { fetchDiscussionTab } from '../course-home/data/thunks';
 import { LOADED, LOADING } from '../course-home/data/slice';
 import PageLoading from './PageLoading';
 import messages from '../tab-page/messages';
+import HeaderWrapper from '../tab-page/ModifiedHeader';
 
 function CourseAccessErrorPage({ intl }) {
   const { courseId } = useParams();
@@ -28,7 +29,7 @@ function CourseAccessErrorPage({ intl }) {
   if (courseStatus === LOADING) {
     return (
       <>
-        <Header />
+        <HeaderWrapper />
         <PageLoading
           srMessage={intl.formatMessage(messages.loading)}
         />
@@ -41,7 +42,7 @@ function CourseAccessErrorPage({ intl }) {
   }
   return (
     <>
-      <Header />
+      <HeaderWrapper />
       <main id="main-content" className="container my-5 text-center" data-testid="access-denied-main">
         <AlertList
           topic="outline"
