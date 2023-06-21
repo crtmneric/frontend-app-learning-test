@@ -14,7 +14,7 @@ export default function SequenceNavigationTabs({
     containerRef,
     invisibleStyle,
   ] = useIndexOfLastVisibleChild();
-  const shouldDisplayDropdown = isMobile ? true : indexOfLastVisibleChild === -1;
+  const shouldDisplayDropdown = isMobile() ? true : indexOfLastVisibleChild === -1;
 
   return (
     <div style={{ flexBasis: '100%', minWidth: 0 }}>

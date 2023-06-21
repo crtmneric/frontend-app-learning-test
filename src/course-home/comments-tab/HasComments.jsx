@@ -186,7 +186,7 @@ function HasComments() {
 
     return (
         <>
-            {comments.length > 0 ?
+            {avarage > 0 ?
                 <div className="comments_header">
                     <div className="d-flex pg-wrapper" style={{ width: "100%" }}>
                         <div className="col-2 total-number-wrapper">
