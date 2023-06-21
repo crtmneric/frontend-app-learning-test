@@ -65,7 +65,9 @@ function HasComments() {
         // url = appendBrowserTimezoneToUrl(url);
         const { data } = await getAuthenticatedHttpClient().get(url);
 
-        setComments(data['comments'])
+        //setComments(data['comments'])
+        setComments([])
+
         setAvarage(data["bar"]["average"])
         setAvarageIcon(data["bar"]["avg_icon"])
         setProgress1(data["bar"]["1"])

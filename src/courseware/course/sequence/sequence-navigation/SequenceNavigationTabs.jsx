@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import UnitButton from './UnitButton';
 import SequenceNavigationDropdown from './SequenceNavigationDropdown';
 import useIndexOfLastVisibleChild from '../../../../generic/tabs/useIndexOfLastVisibleChild';
+import { isMobile } from '../../../../experiments/mm-p2p/utils';
 
 export default function SequenceNavigationTabs({
   unitIds, unitId, showCompletion, onNavigate,
@@ -13,7 +14,7 @@ export default function SequenceNavigationTabs({
     containerRef,
     invisibleStyle,
   ] = useIndexOfLastVisibleChild();
-  const shouldDisplayDropdown = indexOfLastVisibleChild === -1;
+  const shouldDisplayDropdown = isMobile ? true : indexOfLastVisibleChild === -1;
 
   return (
     <div style={{ flexBasis: '100%', minWidth: 0 }}>

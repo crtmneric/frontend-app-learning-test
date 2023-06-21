@@ -5,10 +5,15 @@ import { LearningHeader as Header } from '@edx/frontend-component-header';
 const replaceHref = () => {
   useEffect(() => {
     const links = document.querySelectorAll('header a');
+    const headerTextClass = document.querySelectorAll('.course-title-lockup');
 
     links.forEach((link) => {
       link.setAttribute('href', 'https://test.pupilica.com');
     });
+    headerTextClass.forEach((htc) => {
+      htc.remove();
+    });
+
   }, []);
 
   return null; // Return null as we don't need to render anything
