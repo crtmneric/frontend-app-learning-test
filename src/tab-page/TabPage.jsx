@@ -17,6 +17,7 @@ import LoadedTabPage from './LoadedTabPage';
 import { setCallToActionToast } from '../course-home/data/slice';
 import LaunchCourseHomeTourButton from '../product-tours/newUserCourseHomeTour/LaunchCourseHomeTourButton';
 import HeaderWrapper from './ModifiedHeader'
+import FooterWrapper from './ModifiedFooter'
 
 function TabPage({ intl, ...props }) {
   const {
@@ -46,7 +47,7 @@ function TabPage({ intl, ...props }) {
         <PageLoading
           srMessage={intl.formatMessage(messages.loading)}
         />
-        <Footer />
+        <FooterWrapper />
       </>
     );
   }
@@ -82,7 +83,7 @@ function TabPage({ intl, ...props }) {
           showUserDropdown={false}
         />
         <LoadedTabPage {...props} />
-        <Footer />
+        <FooterWrapper />
       </>
     );
   }
@@ -94,7 +95,7 @@ function TabPage({ intl, ...props }) {
       <p className="text-center py-5 mx-auto" style={{ maxWidth: '30em' }}>
         {intl.formatMessage(messages.failure)}
       </p>
-      <Footer />
+      <FooterWrapper />
     </>
   );
 }

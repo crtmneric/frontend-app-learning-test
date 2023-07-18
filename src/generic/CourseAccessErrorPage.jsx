@@ -12,6 +12,7 @@ import { LOADED, LOADING } from '../course-home/data/slice';
 import PageLoading from './PageLoading';
 import messages from '../tab-page/messages';
 import HeaderWrapper from '../tab-page/ModifiedHeader';
+import FooterWrapper from '../tab-page/ModifiedFooter';
 
 function CourseAccessErrorPage({ intl }) {
   const { courseId } = useParams();
@@ -33,7 +34,7 @@ function CourseAccessErrorPage({ intl }) {
         <PageLoading
           srMessage={intl.formatMessage(messages.loading)}
         />
-        <Footer />
+        <FooterWrapper />
       </>
     );
   }
@@ -52,7 +53,7 @@ function CourseAccessErrorPage({ intl }) {
           }}
         />
       </main>
-      <Footer />
+      <FooterWrapper />
     </>
   );
 }
