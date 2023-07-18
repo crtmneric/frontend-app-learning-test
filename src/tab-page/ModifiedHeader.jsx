@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { render } from 'react-dom';
 import { LearningHeader as Header } from '@edx/frontend-component-header';
+import Footer from '@edx/frontend-component-footer';
+
 
 const replaceHref = () => {
   useEffect(() => {

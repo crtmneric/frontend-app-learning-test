@@ -418,7 +418,19 @@
   color: #000  !important;
 }
 
+#root footer .footer, footer div { padding: 0 !important;}
+footer.footer {background:rgb(26, 20, 44) !important;}
 
+footer ul li {
+  list-style: none !important;
+  font-size: 1rem !important;
+  cursor: pointer !important;
+  margin-bottom: 15px !important;
+}
+
+footer ul li a {
+  color: rgb(160, 160, 160) !important;
+}
 
 
 // Import component-specific sass files
