@@ -35,7 +35,7 @@ const replaceHrefFooter = () => {
             </div>
             <div><img src="https://test.pupilica.com/images/footer-buttons.png" alt="Pupilica" /></div>
         </div>
-        <div style="display: flex; align-items: center; justify-content: flex-end">  
+        <div style="display: flex; align-items: center; justify-content: flex-end;padding-block: 24px !important;">  
           <div style="color: rgb(255, 255, 255); font-size: 13px;">Tüm Hakları Saklıdır <span style="color: rgb(189, 225, 41)">Pupilica 2023 </span></div>
         </div>
       </div>
