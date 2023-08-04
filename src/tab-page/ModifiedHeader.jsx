@@ -10,7 +10,7 @@ const replaceHref = () => {
     const headerTextClass = document.querySelectorAll('.course-title-lockup');
 
     links.forEach((link) => {
-      link.setAttribute('href', 'https://test.pupilica.com');
+      link.setAttribute('href', 'https://pupilica.com');
     });
     headerTextClass.forEach((htc) => {
       htc.remove();
