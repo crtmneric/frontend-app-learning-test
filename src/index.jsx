@@ -47,7 +47,7 @@ const replaceHref = () => {
     const links = document.querySelectorAll('header a');
 
     links.forEach((link) => {
-      link.setAttribute('href', 'https://pupilica.com');
+      link.setAttribute('href', 'https://test.pupilica.com');
     });
   }, []);
 };
