@@ -75,9 +75,6 @@ function CourseTools({ intl }) {
             </li>
           ) : null
         ))}
-        <li className="small" id="courseHome-launchTourLink">
-          <LaunchCourseHomeTourButton />
-        </li>
       </ul>
     </section>
   );
