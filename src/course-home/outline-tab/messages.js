@@ -161,7 +161,7 @@ const messages = defineMessages({
   },
   tools: {
     id: 'learning.outline.tools',
-    defaultMessage: 'Course Tools',
+    defaultMessage: 'Araçlar',
     description: 'Headline for the (course tools) section in course outline. course tool might include links to course bookmarks, financial assistance...etc',
   },
   upgradeButton: {
