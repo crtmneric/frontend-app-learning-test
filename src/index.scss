@@ -436,6 +436,46 @@ footer ul li a {
   color: rgb(160, 160, 160) !important;
 }
 
+.footer-elements {
+  display: flex !important;
+  justify-content: space-between !important;
+
+  @media (min-width: map-get($grid-breakpoints, "sm")) {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+  }
+}
+
+.footer-elements ul{
+  @media (min-width: map-get($grid-breakpoints, "sm")) {
+    padding-left: 0px !important;
+    text-align: center !important;
+  }
+}
+
+.footer-copyright {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  padding-block: 24px !important;
+
+  @media (min-width: map-get($grid-breakpoints, "sm")) {
+    text-align: center !important;
+  }
+}
+
+.comment_wrapper {
+  @media (min-width: map-get($grid-breakpoints, "sm")) {
+    padding: 40px 0px !important;
+  }
+}
+
+.comment_box {
+  @media (min-width: map-get($grid-breakpoints, "sm")) {
+    width: 120% !important;
+  }
+}
 
 // Import component-specific sass files
 @import "courseware/course/celebration/CelebrationModal.scss";
