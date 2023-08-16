@@ -464,6 +464,7 @@ footer ul li a {
     text-align: center !important;
   }
 }
+.course-wrapper.chromeless{min-height: 300px !important}
 
 .comment_wrapper {
   @media (max-width: map-get($grid-breakpoints, "sm")) {
