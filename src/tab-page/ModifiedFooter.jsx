@@ -25,11 +25,11 @@ const replaceHrefFooter = () => {
             <div>
                 <ul>
                     <li><a href="https://pupilica.com/conditions">Kullanıcı S&ouml;zleşmesi</a></li>
-                    <li><a href="https://pupilica.com/faqs">Sık&ccedil;a Sorulan Sorular</a></li>
                     <li><a href="https://softtech.com.tr/web-sitesi-gizlilik-politikasi/" target="_blank">Gizlilik
                             S&ouml;zleşmesi</a></li>
                     <li><a href="https://softtech.com.tr/wp-content/uploads/2018/07/KVK-Ba%C5%9Fvuru-Formu.pdf"
                             target="_blank">KVKK Başvuru Formu</a></li>
+                    <li><a href="https://pupilica.com/faqs">Sık&ccedil;a Sorulan Sorular</a></li>
                     <li><a href="https://pupilica.com/contact">Bize Ulaşın</a></li>
                 </ul>
             </div>
