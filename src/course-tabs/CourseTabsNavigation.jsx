@@ -23,7 +23,7 @@ function CourseTabsNavigation({
         >
 
           {tabs.map(({ url, title, slug }) => (
-            slug !== "discussion" && slug !== "dates" && slug !== "progress" && slug !== "edxnotes" &&
+            slug !== "discussion" && slug !== "dates" && slug !== "edxnotes" &&
             <a
               key={slug}
               className={classNames('nav-item flex-shrink-0 nav-link', { active: slug === activeTabSlug })}
@@ -31,11 +31,12 @@ function CourseTabsNavigation({
             >
               {
                 slug === 'courseware' ? 'Öğrenme Yolculuğu' :
-                    slug === 'dates' ? "Tarihler" :
-                      slug === 'instructors' ? 'Eğitmenler' :
-                        slug === 'instructor' ? 'Eğitmen' :
-                          slug === 'comments' ? 'Yorumlar' :
-                            slug === 'outline' ? 'Öğrenme Yolculuğu' :
+                  slug === 'dates' ? "Tarihler" :
+                    slug === 'instructors' ? 'Eğitmenler' :
+                      slug === 'instructor' ? 'Eğitmen' :
+                        slug === 'comments' ? 'Yorumlar' :
+                          slug === 'outline' ? 'Öğrenme Yolculuğu' :
+                            slug === 'progress' ? 'İlerleme' :
                               title
               }
 
