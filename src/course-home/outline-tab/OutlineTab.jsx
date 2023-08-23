@@ -99,10 +99,6 @@ function OutlineTab({ intl }) {
     });
   };
 
-  const progressTabData = () => {
-    return fetchProgressTab(courseId, targetUserId)
-  };
-
   const isEnterpriseUser = () => {
     const authenticatedUser = getAuthenticatedUser();
     const userRoleNames = authenticatedUser ? authenticatedUser.roles.map(role => role.split(':')[0]) : [];
