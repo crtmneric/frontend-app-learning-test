@@ -30,7 +30,6 @@ import WelcomeMessage from './widgets/WelcomeMessage';
 import ProctoringInfoPanel from './widgets/ProctoringInfoPanel';
 import AccountActivationAlert from '../../alerts/logistration-alert/AccountActivationAlert';
 import CourseCompletion from '../progress-tab/course-completion/CourseCompletion';
-import { getCompletionCounts } from '../progress-tab/course-completion/CompletionDonutChart'; // Replace with the actual path
 
 /** [MM-P2P] Experiment */
 import { initHomeMMP2P, MMP2PFlyover } from '../../experiments/mm-p2p';
@@ -41,11 +40,15 @@ function OutlineTab({ intl }) {
     proctoringPanelStatus,
     targetUserId,
   } = useSelector(state => state.courseHome);
+
   const {
-    completeCount,
-    incompleteCount,
-    lockedCount,
-  } = getCompletionCounts(courseId);
+    completionSummary: {
+      completeCount,
+      incompleteCount,
+      lockedCount,
+    },
+  } = useModel('progress', courseId);
+  
 
   const numTotalUnits = completeCount + incompleteCount + lockedCount;
   const completePercentage = completeCount ? Number(((completeCount / numTotalUnits) * 100).toFixed(0)) : 0;
