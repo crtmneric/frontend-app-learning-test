@@ -102,6 +102,7 @@ function OutlineTab({ intl }) {
   const progressTabData = () => {
     return fetchProgressTab(courseId, targetUserId)
   };
+
   const isEnterpriseUser = () => {
     const authenticatedUser = getAuthenticatedUser();
     const userRoleNames = authenticatedUser ? authenticatedUser.roles.map(role => role.split(':')[0]) : [];
@@ -160,7 +161,7 @@ function OutlineTab({ intl }) {
             </>
           )}
           <WelcomeMessage courseId={courseId} />
-          {progressTabData}
+          {progressTabData()}
           {rootCourseId && (
             <>
               <div className="row w-100 m-0 mb-3 justify-content-end">
