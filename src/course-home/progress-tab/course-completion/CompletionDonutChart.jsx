@@ -23,6 +23,22 @@ function CompletionDonutChart({ intl }) {
     },
   } = useModel('progress', courseId);
 
+  function getCompletionCounts(courseId) {
+    const {
+      completionSummary: {
+        completeCount,
+        incompleteCount,
+        lockedCount,
+      },
+    } = useModel('progress', courseId);
+  
+    return {
+      completeCount,
+      incompleteCount,
+      lockedCount,
+    };
+  }
+
   const numTotalUnits = completeCount + incompleteCount + lockedCount;
   const completePercentage = completeCount ? Number(((completeCount / numTotalUnits) * 100).toFixed(0)) : 0;
   const lockedPercentage = lockedCount ? Number(((lockedCount / numTotalUnits) * 100).toFixed(0)) : 0;
