@@ -40,6 +40,18 @@ function OutlineTab({ intl }) {
     proctoringPanelStatus,
     targetUserId,
   } = useSelector(state => state.courseHome);
+  const {
+    completionSummary: {
+      completeCount,
+      incompleteCount,
+      lockedCount,
+    },
+  } = useModel('progress', courseId);
+
+  const numTotalUnits = completeCount + incompleteCount + lockedCount;
+  const completePercentage = completeCount ? Number(((completeCount / numTotalUnits) * 100).toFixed(0)) : 0;
+  const lockedPercentage = lockedCount ? Number(((lockedCount / numTotalUnits) * 100).toFixed(0)) : 0;
+  const incompletePercentage = 100 - completePercentage - lockedPercentage;
 
   const {
     isSelfPaced,
@@ -161,7 +173,7 @@ function OutlineTab({ intl }) {
             </>
           )}
           <WelcomeMessage courseId={courseId} />
-          {progressTabData()}
+          Complete Percentage: {completePercentage}
           {rootCourseId && (
             <>
               <div className="row w-100 m-0 mb-3 justify-content-end">
