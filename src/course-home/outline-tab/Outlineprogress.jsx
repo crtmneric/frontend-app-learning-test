@@ -38,24 +38,26 @@ function OutlineProgress({ courseId }) {
         height: '10px', // Adjust the height
         background: `linear-gradient(to right, #aaf3a8, #57cc99)`,
         borderRadius: '10px',
-        border: '1px solid #57cc99',
         transition: 'width 0.5s ease-in-out',
         position: 'relative',
     };
+    const containerStyle = {
+        width: `100%`,
+        height: '10px', // Adjust the height
+        backgroundColor: 'lightgray',
+    };
     const labelStyle = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)', // Center the label
         fontWeight: 'bold',
     };
     // Render the component once completionSummary is available
     return (
         <div>
-            <p style={labelStyle}>Percentage: %{completePercentage}</p>
+            <p style={labelStyle}>Tamamlama Oranı: %{completePercentage}</p>
             {/* Add your JSX code here that uses completionSummary */}
             {/* Render the progress bar */}
-            <div style={progressBarStyle}></div>
+            <div style={containerStyle}>
+                <div style={progressBarStyle}></div>
+            </div>
         </div>
     );
 }
