@@ -30,7 +30,7 @@ import WelcomeMessage from './widgets/WelcomeMessage';
 import ProctoringInfoPanel from './widgets/ProctoringInfoPanel';
 import AccountActivationAlert from '../../alerts/logistration-alert/AccountActivationAlert';
 import CourseCompletion from '../progress-tab/course-completion/CourseCompletion';
-import OutlineProgress from './OutlineProgress'
+import OutlineProgress from './Outlineprogress'
 
 /** [MM-P2P] Experiment */
 import { initHomeMMP2P, MMP2PFlyover } from '../../experiments/mm-p2p';
