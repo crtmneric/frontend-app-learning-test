@@ -163,7 +163,7 @@ function OutlineTab({ intl }) {
             </>
           )}
           <WelcomeMessage courseId={courseId} />
-          <OutlineProgress/>
+          <OutlineProgress courseId={courseId}/>
           {rootCourseId && (
             <>
               <div className="row w-100 m-0 mb-3 justify-content-end">
