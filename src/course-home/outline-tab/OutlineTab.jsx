@@ -30,13 +30,13 @@ import WelcomeMessage from './widgets/WelcomeMessage';
 import ProctoringInfoPanel from './widgets/ProctoringInfoPanel';
 import AccountActivationAlert from '../../alerts/logistration-alert/AccountActivationAlert';
 import CourseCompletion from '../progress-tab/course-completion/CourseCompletion';
+import OutlineProgress from './OutlineProgress'
 
 /** [MM-P2P] Experiment */
 import { initHomeMMP2P, MMP2PFlyover } from '../../experiments/mm-p2p';
 
 function OutlineTab({ intl }) {
-  const [completionSummary, setCompletionSummary] = useState(null);
-  const [progressComplete, setProgressComplete] = useState(null);
+
 
 
   const {
@@ -44,16 +44,6 @@ function OutlineTab({ intl }) {
     proctoringPanelStatus,
     targetUserId,
   } = useSelector(state => state.courseHome);
-
-  const {
-    completionSummary: {
-      completeCount,
-      incompleteCount,
-      lockedCount,
-    },
-  } = useModel('progress', courseId);
-
-
 
   const {
     isSelfPaced,
@@ -144,22 +134,6 @@ function OutlineTab({ intl }) {
     }
   }, [location.search]);
 
-  useEffect(() => {
-    // Use the useModel hook to fetch completionSummary based on the courseId
-    const fetchData = async () => {
-      try {
-        const data = await useModel('progress', courseId);
-        setCompletionSummary(data.completionSummary);
-        const numTotalUnits = data.completionSummary.completeCount + data.completionSummary.incompleteCount + data.completionSummary.lockedCount;
-        setProgressComplete(data.completionSummary.completeCount ? Number(((data.completionSummary.completeCount / numTotalUnits) * 100).toFixed(0)) : 0);
-      } catch (error) {
-        console.error('Error fetching completionSummary:', error);
-      }
-    };
-
-    // Call the fetchData function
-    fetchData();
-  }, [courseId]);
 
   return (
     <>
@@ -189,18 +163,7 @@ function OutlineTab({ intl }) {
             </>
           )}
           <WelcomeMessage courseId={courseId} />
-          <div>
-            {completionSummary && (
-              <>
-                <p>Complete Count: {completionSummary.completeCount}</p>
-                <p>Incomplete Count: {completionSummary.incompleteCount}</p>
-                <p>Locked Count: {completionSummary.lockedCount}</p>
-                <p>Progress Complete: {progressComplete}</p>
-
-                {/* Add your JSX code here that uses completionSummary */}
-              </>
-            )}
-          </div>
+          <OutlineProgress/>
           {rootCourseId && (
             <>
               <div className="row w-100 m-0 mb-3 justify-content-end">
