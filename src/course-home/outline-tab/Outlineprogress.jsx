@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useModel } from '../../../generic/model-store';
+import { useModel } from '../../generic/model-store';
 
 // Define your new component
 function OutlineProgress({ courseId }) {
