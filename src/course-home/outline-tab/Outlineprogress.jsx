@@ -35,17 +35,24 @@ function OutlineProgress({ courseId }) {
     const completePercentage = completeCount ? Number(((completeCount / numTotalUnits) * 100).toFixed(0)) : 0;
     const progressBarStyle = {
         width: `${completePercentage}%`,
-        height: '20px',
-        backgroundColor: 'green',
+        height: '10px', // Adjust the height
+        background: `linear-gradient(to right, #aaf3a8, #57cc99)`,
+        borderRadius: '10px',
+        border: '1px solid #57cc99',
+        transition: 'width 0.5s ease-in-out',
+        position: 'relative',
     };
-
+    const labelStyle = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)', // Center the label
+        fontWeight: 'bold',
+    };
     // Render the component once completionSummary is available
     return (
         <div>
-            <p>Complete Count: {completeCount}</p>
-            <p>Incomplete Count: {incompleteCount}</p>
-            <p>Locked Count: {lockedCount}</p>
-            <p>Percentage: {completePercentage}</p>
+            <p style={labelStyle}>Percentage: %{completePercentage}</p>
             {/* Add your JSX code here that uses completionSummary */}
             {/* Render the progress bar */}
             <div style={progressBarStyle}></div>
