@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useModel } from '../../generic/model-store';
 
 // Define your new component
-function OutlineProgress({ courseId }) {
-    // Initialize state for the completionSummary data
-    const [completionSummary, setCompletionSummary] = useState(null);
+function OutlineProgress() {
+    
+    const {
+        courseId,
+    } = useSelector(state => state.courseHome);
 
-    // Fetch the completionSummary data when the courseId changes
-    useEffect(() => {
-        getData();
-    }, [courseId]);
+    const {
+        completionSummary: {
+            completeCount,
+            incompleteCount,
+            lockedCount,
+        },
+    } = useModel('progress', courseId);
 
-    const getData = async () => {
-        const data = await useModel('progress', courseId);
-        setCompletionSummary(data?.completionSummary);
-    }
-
-    // Check if completionSummary is defined before accessing its properties
-    const completeCount = completionSummary?.completeCount || 0;
-    const incompleteCount = completionSummary?.incompleteCount || 0;
-    const lockedCount = completionSummary?.lockedCount || 0;
     const numTotalUnits = completeCount + incompleteCount + lockedCount;
     const completePercentage = completeCount ? Number(((completeCount / numTotalUnits) * 100).toFixed(0)) : 0;
 
