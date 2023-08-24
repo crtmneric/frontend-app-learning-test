@@ -45,6 +45,8 @@ function OutlineProgress({ courseId }) {
         width: `100%`,
         height: '10px', // Adjust the height
         backgroundColor: 'lightgray',
+        borderRadius: '10px'
+
     };
     const labelStyle = {
         fontWeight: 'bold',
