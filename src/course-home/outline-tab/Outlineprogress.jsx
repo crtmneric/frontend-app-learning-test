@@ -3,8 +3,6 @@ import { useModel } from '../../generic/model-store';
 
 // Define your new component
 function OutlineProgress({ courseId }) {
-    const { courseId } = useSelector(state => state.courseHome);
-
     useEffect(() => {
         if (courseId) {
             const response = useModel('progress', courseId);
