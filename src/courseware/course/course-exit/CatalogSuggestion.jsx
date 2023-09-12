@@ -8,7 +8,7 @@ import {
   FormattedMessage, injectIntl, intlShape,
 } from '@edx/frontend-platform/i18n';
 import { Hyperlink } from '@edx/paragon';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCertificate } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useModel } from '../../../generic/model-store';
