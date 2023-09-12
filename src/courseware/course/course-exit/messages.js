@@ -48,12 +48,12 @@ const messages = defineMessages({
   },
   completedCourseHeader: {
     id: 'courseCelebration.completedCourseHeader',
-    defaultMessage: 'You have completed your course.',
+    defaultMessage: 'Kursu başarıyla tamamladın.',
     description: 'Header text for course exit section',
   },
   congratulationsHeader: {
     id: 'courseCelebration.congratulationsHeader',
-    defaultMessage: 'Congratulations!',
+    defaultMessage: 'Tebrikler!',
     description: 'Greeting learner for finishing the course',
   },
   congratulationsImage: {

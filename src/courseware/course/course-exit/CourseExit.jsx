@@ -63,14 +63,6 @@ function CourseExit({ intl }) {
 
   return (
     <>
-      <div className="row w-100 mt-2 mb-4 justify-content-end">
-        <Button
-          variant="outline-primary"
-          href={`${getConfig().LMS_BASE_URL}/dashboard`}
-        >
-          {intl.formatMessage(messages.viewCoursesButton)}
-        </Button>
-      </div>
       {body}
     </>
   );
