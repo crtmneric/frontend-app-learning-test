@@ -35,7 +35,7 @@ function getCourseExitMode(
 ) {
   const authenticatedUser = getAuthenticatedUser();
 
-  if (courseExitPageIsActive === false || !authenticatedUser || !isEnrolled) {
+  if (!authenticatedUser || !isEnrolled) {
     return COURSE_EXIT_MODES.disabled;
   }
 
@@ -52,17 +52,7 @@ function getCourseExitMode(
     isCelebratoryStatus = CELEBRATION_STATUSES.indexOf(certStatus) !== -1;
     isEligibleForCertificate = NON_CERTIFICATE_STATUSES.indexOf(certStatus) === -1;
   }
-
-  if (hasScheduledContent && !userHasPassingGrade) {
-    return COURSE_EXIT_MODES.inProgress;
-  }
-  if (isEligibleForCertificate && !userHasPassingGrade && canImmediatelyViewCertificate) {
-    return COURSE_EXIT_MODES.nonPassing;
-  }
-  if (isCelebratoryStatus) {
-    return COURSE_EXIT_MODES.celebration;
-  }
-  return COURSE_EXIT_MODES.disabled;
+  return COURSE_EXIT_MODES.celebration;
 }
 
 // Returns null in order to render the default navigation text

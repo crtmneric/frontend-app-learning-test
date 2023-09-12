@@ -3,7 +3,7 @@ import { defineMessages } from '@edx/frontend-platform/i18n';
 const messages = defineMessages({
   nextButton: {
     id: 'learn.sequence.navigation.next.button',
-    defaultMessage: 'Ileri',
+    defaultMessage: 'İleri',
     description: 'Button to advance to the next section',
   },
   nextUpButton: {
