@@ -40,7 +40,7 @@ function CatalogSuggestion({ intl, variant }) {
         <FormattedMessage
           id="courseExit.catalogSearchSuggestion"
           defaultMessage="{downloadCertificateLink} görmeye ne dersin :) ?"
-          values={{ searchOurCatalogLink }}
+          values={{ downloadCertificateLink }}
           description="Sertifika"
         />
       </div>
