@@ -20,15 +20,16 @@ function CatalogSuggestion({ intl, variant }) {
   const { courseId } = useSelector(state => state.courseware);
   const { org } = useModel('courseHomeMeta', courseId);
   const { administrator } = getAuthenticatedUser();
+  const url = `https://courses.pupilica.com/user/certificate/${courseId}`;
 
-  const searchOurCatalogLink = (
+  const downloadCertificateLink = (
     <Hyperlink
       style={{ textDecoration: 'underline' }}
-      destination={getConfig().SEARCH_CATALOG_URL}
+      destination={url}
       className="text-reset"
       onClick={() => logClick(org, courseId, administrator, 'catalog_search', { variant })}
     >
-      {intl.formatMessage(messages.searchOurCatalogLink)}
+      Sertifikanı
     </Hyperlink>
   );
 
@@ -38,7 +39,7 @@ function CatalogSuggestion({ intl, variant }) {
         <FontAwesomeIcon icon={faCertificate} style={{ width: '20px' }} />&nbsp;
         <FormattedMessage
           id="courseExit.catalogSearchSuggestion"
-          defaultMessage="{Sertifikanı} görmeye ne dersin :) ?"
+          defaultMessage="{downloadCertificateLink} görmeye ne dersin :) ?"
           values={{ searchOurCatalogLink }}
           description="Sertifika"
         />
