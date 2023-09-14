@@ -64,7 +64,7 @@ function UnitNavigation({
     const { exitActive, exitText } = getCourseExitNavigation(courseId, intl);
     const buttonOnClick = isLastUnit ? goToCourseExitPage : onClickNext;
     const buttonText = (isLastUnit && exitText) ? exitText : intl.formatMessage(messages.nextButton);
-    const disabled = (isLastUnit && !exitActive) || completePercentage !== 100;
+    const disabled = (isLastUnit && !exitActive) && completePercentage !== 100;
     const nextArrow = isRtl(getLocale()) ? faChevronLeft : faChevronRight;
     return (
       <Button
