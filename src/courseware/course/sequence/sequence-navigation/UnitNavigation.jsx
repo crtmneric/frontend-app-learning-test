@@ -9,6 +9,7 @@ import {
 import { useSelector } from 'react-redux';
 
 import { getCourseExitNavigation } from '../../course-exit';
+import { getAuthenticatedHttpClient } from '@edx/frontend-platform/auth';
 
 import UnitNavigationEffortEstimate from './UnitNavigationEffortEstimate';
 import { useSequenceNavigationMetadata } from './hooks';
@@ -24,12 +25,45 @@ function UnitNavigation({
 }) {
   const { isFirstUnit, isLastUnit } = useSequenceNavigationMetadata(sequenceId, unitId);
   const { courseId } = useSelector(state => state.courseware);
+  const [progressData, setProgressData] = useState(null);
+  const [progressDataFetched, setProgressDataFetched] = useState(false); // Track whether progress data has been fetched
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        if (isLastUnit && !progressDataFetched) {
+          // Define the URL with the actual courseId
+          const url = `https://courses.pupilica.com/api/course_home/progress/${courseId}`;
+
+          // Make the GET request using an asynchronous function
+          const response = await getAuthenticatedHttpClient().get(url);
+
+          // Set the fetched data in state
+          setProgressData(response.data.completion_summary);
+          setProgressDataFetched(true); // Mark progress data as fetched
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    // Call the async function
+    fetchData();
+  }, [courseId, isLastUnit, progressDataFetched]);
+
+  // Check if completionSummary is defined before accessing its properties
+  const completeCount = progressData?.complete_count || 0;
+  const incompleteCount = progressData?.incomplete_count || 0;
+  const lockedCount = progressData?.locked_count || 0;
+  const numTotalUnits = completeCount + incompleteCount + lockedCount;
+  const completePercentage = completeCount ? Number(((completeCount / numTotalUnits) * 100).toFixed(0)) : 0;
+
 
   const renderNextButton = () => {
     const { exitActive, exitText } = getCourseExitNavigation(courseId, intl);
     const buttonOnClick = isLastUnit ? goToCourseExitPage : onClickNext;
     const buttonText = (isLastUnit && exitText) ? exitText : intl.formatMessage(messages.nextButton);
-    const disabled = isLastUnit && !exitActive;
+    const disabled = (isLastUnit && !exitActive) || completePercentage !== 100;
     const nextArrow = isRtl(getLocale()) ? faChevronLeft : faChevronRight;
     return (
       <Button
