@@ -48,7 +48,7 @@ const messages = defineMessages({
   },
   completedCourseHeader: {
     id: 'courseCelebration.completedCourseHeader',
-    defaultMessage: 'Kursu başarıyla tamamladın.',
+    defaultMessage: 'Eğitimi başarıyla tamamladın.',
     description: 'Header text for course exit section',
   },
   congratulationsHeader: {
@@ -113,7 +113,7 @@ const messages = defineMessages({
   },
   nextButtonComplete: {
     id: 'learn.sequence.navigation.complete.button', // for historical reasons
-    defaultMessage: 'Kursu Tamamla',
+    defaultMessage: 'Eğitimi Tamamla',
     description: 'This text is shown on the button which usually links to the next unit or assignment in course sequence, however when it is the last unit. The button will link to course exit page',
   },
   nextButtonEnd: {
