@@ -71,7 +71,7 @@ function CourseInstructorsTab() {
                     {allInstructors && allInstructors.length < 1 &&
                         <div className='col-md-6 offset-md-3 text-center'>
                             <img src={InfoImg} alt="icon" />
-                            <p className='no-instructor-text'>Gösterilecek Eğitmen Bilgisi Bulunamadı</p>
+                            <p className='no-instructor-text'>Eğitmen bilgisi yer almıyor.</p>
                         </div>
 
                     }
